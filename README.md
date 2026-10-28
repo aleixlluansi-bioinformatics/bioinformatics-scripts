@@ -11,27 +11,40 @@ bioinformatics-scripts/
 │
 ├── README.md
 │
-├── statistical-analysis/
-│   ├── README.md
-│   └── data-distribution-assessment/
-│       ├── data_distribution_assessment.R
-│       ├── input_file.csv
-│       └── README.md
-│
 ├── bioinformatics-analysis/
-│   └── README.md
+│   ├── amplicon-sequencing/
+│       ├── 03.phyloseq_run1_4_H.R
+│       ├── dada2_amplicon_pipeline.R
+│   └── dpipeline_shotgun_BSC/
+│       ├── 1. fastqc.slurm
+│       ├── 2.multiqc.slurm
+│       ├── 3.trimgalore.slurm
+│       ├── 4.fastqc_trimmed.sh
+│       ├── 5.multiqc_trimmed.sh
+│       ├── 6.bowtie2.sh
+│       ├── 7.read_stats.sh
+│       ├── 8.filter_samples.sh
 │
 ├── microbiome-analysis/
-│   ├── README.md
-│   ├── alpha-diversity/
-│   ├── beta-diversity/
-│   │   ├── pcoa_permanova.R
-│   │   └── README.md
-│   ├── differential-abundance/
-│   ├── clinical-associations/
-│   │   ├── survival_analysis_microbiome.R
-│   │   └── README.md
-│   └── longitudinal-analysis/
+│   └── README.md
+│
+└── shiny-apps/
+    └── shiny_app_data_distribution.R
+│
+├── statistical-analysis/
+│   ├── ML_prediction/
+│       ├── CatboostPipeline.R
+│       ├── RandomforestPipeline.R
+│       ├── SeleccionPredictores.R
+│       ├──  XGboostPipeline.R
+│   ├── Anova_Tukey_Grafics.R
+│   ├── Descriptive_tables.R
+│   ├── Kaplan_meier.R
+│   ├── Linear mixed-effects model.R
+│   └── Univariate_Multivariate_Analyses.R
+│   ├── data_distribution_assessment.R
+│   ├── sample_size_calculator.R
+│   ├──survival_analysis_microbiome.R
 │
 └── shiny-apps/
     └── data-distribution-assessment/
