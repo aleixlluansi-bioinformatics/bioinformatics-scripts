@@ -26,7 +26,16 @@ bioinformatics-scripts/
 │       ├── 8.filter_samples.sh
 │
 ├── microbiome-analysis/
-│   └── README.md
+│   ├── Aldex2_protocol_2.R
+│   ├── Coda4Microbiome_pipeline.R
+│   ├── Interactive ordination.R
+│   ├──PCA Aitchison distances with permanova.R
+│   └── PCOA unweighted unifrac with permanova.R
+│   ├── PICRUST2 pipeline.R
+│   ├── ancombc.R
+│   ├──SparCC_correlations.R
+│   ├── unsupervisedPCA.R
+│   ├──venndiagram.R
 │
 └── shiny-apps/
     └── shiny_app_data_distribution.R
