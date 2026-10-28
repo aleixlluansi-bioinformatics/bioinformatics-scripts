@@ -1,48 +1,218 @@
-# R Statistical Tools
+# Bioinformatics and Statistical Analysis Scripts
 
-A small collection of base-R scripts for common research tasks.
+A collection of reusable scripts for bioinformatics, statistical analysis, and microbiome research. This repository aims to provide practical and reproducible tools for processing biological data, performing statistical analyses, and visualizing research results.
 
-## Scripts
+## Repository Structure
 
-### `sample_size_calculator.R`
-Interactive sample-size estimates for:
-- Estimation of one proportion
-- Estimation of one mean
-- Comparison of two independent proportions
-- Comparison of two independent means
-- Paired means
-- Pearson correlation
+The repository is organized into four main categories according to the purpose of each script.
 
-The calculations are planning approximations. Select assumptions from prior evidence or pilot data and confirm protocol-specific calculations with a statistician. This script does not cover every study design.
+```text
+bioinformatics-scripts/
+│
+├── README.md
+│
+├── statistical-analysis/
+│   ├── README.md
+│   └── data-distribution-assessment/
+│       ├── data_distribution_assessment.R
+│       ├── input_file.csv
+│       └── README.md
+│
+├── bioinformatics-analysis/
+│   └── README.md
+│
+├── microbiome-analysis/
+│   ├── README.md
+│   ├── alpha-diversity/
+│   ├── beta-diversity/
+│   │   ├── pcoa_permanova.R
+│   │   └── README.md
+│   ├── differential-abundance/
+│   ├── clinical-associations/
+│   │   ├── survival_analysis_microbiome.R
+│   │   └── README.md
+│   └── longitudinal-analysis/
+│
+└── shiny-apps/
+    └── data-distribution-assessment/
+        ├── app.R
+        └── README.md
+```
 
-### `data_distribution_assessment.R`
-Imports a CSV file and creates:
-- Descriptive statistics
-- Histograms and normal Q-Q plots
-- Shapiro-Wilk results when the sample size is within the test's supported range
-- Exploratory outlier flags using the 1.5 × IQR rule
-- A plain-language interpretation guide
+*Note: The directory tree describes the intended organization of the repository. Some directories and scripts may be added as the repository grows.*
 
-## Requirements
+## 1. Statistical Analysis
 
-- R (base installation; no additional packages required)
+**Path:** `statistical-analysis/`
 
-## How to use
+Scripts for general statistical analysis and exploratory data analysis, applicable to a wide range of research datasets.
 
-1. Download the `.R` file(s) or clone this repository.
-2. Open a script in RStudio or another R environment.
-3. Run the script and follow the prompts.
-4. For the distribution assessment, select a CSV file containing numeric columns.
+### Data Distribution Assessment
 
-## Important notes
+**Path:** `statistical-analysis/data-distribution-assessment/`
 
-- These scripts are educational and research-support tools, not substitutes for a prespecified statistical analysis plan.
-- Sample-size results depend on the chosen effect size, variability, alpha, power, allocation ratio, and loss assumptions.
-- Normality tests should not be interpreted in isolation. Inspect plots and consider the assumptions of the intended model.
-- Outlier flags are exploratory and do not imply that observations should be removed.
-- Do not use identifiable or confidential participant data in public repositories or example files.
+Tools for exploring data distributions and assessing assumptions before performing statistical analyses.
+
+The planned functionality includes:
+
+- Descriptive statistics.
+- Assessment of missing data.
+- Distribution visualization using histograms and boxplots.
+- Normality assessment using the Shapiro–Wilk test and Q–Q plots.
+
+The example file `input_file.csv` illustrates the expected input format. Check the corresponding README for the exact input requirements.
+
+## 2. Bioinformatics Analysis
+
+**Path:** `bioinformatics-analysis/`
+
+Scripts for common bioinformatics workflows, particularly those involving sequencing data and computational processing of biological datasets.
+
+Potential areas of development include:
+
+- Sequencing quality control.
+- FASTQ file processing.
+- Sequencing data management.
+- Preparation and submission of sequencing data to public repositories, such as the European Nucleotide Archive (ENA).
+
+The availability and requirements of each workflow are described in its corresponding directory.
+
+## 3. Microbiome Analysis
+
+**Path:** `microbiome-analysis/`
+
+Scripts for the statistical analysis and visualization of microbiome data, with a focus on microbial community composition, diversity, clinical associations, and longitudinal study designs.
+
+### Alpha Diversity
+
+**Path:** `microbiome-analysis/alpha-diversity/`
+
+Analysis of within-sample microbial diversity, including metrics such as Shannon diversity, Chao1 richness, and the inverse Simpson index.
+
+### Beta Diversity
+
+**Path:** `microbiome-analysis/beta-diversity/`
+
+Analysis of differences in microbial community composition between samples.
+
+Planned and available workflows may include:
+
+- Principal Coordinates Analysis (PCoA).
+- PERMANOVA for assessing associations between community composition and explanatory variables.
+- Bray–Curtis dissimilarity.
+- Aitchison distance based on centered log-ratio (CLR) transformation.
+- Visualization of microbial community structure.
+
+### Differential Abundance
+
+**Path:** `microbiome-analysis/differential-abundance/`
+
+Scripts for identifying microbial taxa associated with clinical variables, experimental conditions, or study groups.
+
+### Clinical Associations
+
+**Path:** `microbiome-analysis/clinical-associations/`
+
+Scripts for investigating associations between microbiome features and clinical outcomes.
+
+Examples include:
+
+- Survival analysis using Kaplan–Meier curves.
+- Log-rank tests.
+- Cox proportional hazards regression.
+- Assessment of associations between microbial diversity and progression-free survival or other time-to-event outcomes.
+
+### Longitudinal Analysis
+
+**Path:** `microbiome-analysis/longitudinal-analysis/`
+
+Tools for studying changes in microbial diversity and community composition over time, accounting for repeated measurements when appropriate.
+
+Possible approaches include mixed-effects models and within-subject comparisons.
+
+## 4. Shiny Applications
+
+**Path:** `shiny-apps/`
+
+Interactive applications built with R and Shiny to make selected analyses accessible through a graphical interface.
+
+### Data Distribution Assessment
+
+**Path:** `shiny-apps/data-distribution-assessment/`
+
+An interactive application for uploading a dataset and exploring its numerical variables through descriptive statistics, distribution plots, missing-data summaries, and normality assessment.
+
+The application can be run locally using R and Shiny. Web access requires deployment to a hosting service.
+
+## Getting Started
+
+### Requirements
+
+Requirements depend on the specific script or application. Most scripts are written in R and may require packages such as:
+
+- `ggplot2`
+- `dplyr`
+- `vegan`
+- `phyloseq`
+- `microbiome`
+- `survival`
+- `survminer`
+- `shiny`
+
+Not every script requires all these packages. Consult the README in the relevant directory for the exact dependencies.
+
+### Running an R Script
+
+1. Clone or download the repository.
+2. Install the required R packages.
+3. Prepare the input data in the format specified by the script.
+4. Open the `.R` file in RStudio or another R environment.
+5. Update input and output paths if necessary.
+6. Run the script.
+
+### Running a Shiny Application
+
+Open R in the application directory and run:
+
+```r
+install.packages("shiny")  # If not already installed
+shiny::runApp()
+```
+
+Install any additional packages required by the application before running it.
+
+## Reproducibility and Data Management
+
+To support reproducible research:
+
+- Each analysis should document its input format, dependencies, execution steps, and expected outputs.
+- Example datasets should contain synthetic or appropriately anonymized data.
+- File paths and analysis parameters should be clearly identified.
+- Statistical methods and relevant assumptions should be documented.
+- Study-specific scripts should be adapted and validated before being applied to new datasets.
+
+**Do not upload identifiable patient data, confidential research data, credentials, or other sensitive information to a public repository.**
+
+## Contributing
+
+Suggestions, bug reports, and improvements are welcome. When contributing a new script, please:
+
+1. Place it in the most appropriate category.
+2. Use a descriptive filename.
+3. Include a README explaining its purpose and requirements.
+4. Provide a small example dataset when appropriate and safe to share.
+5. Document important parameters, assumptions, and limitations.
+
+## Disclaimer
+
+These scripts are provided for research and educational purposes. They are not guaranteed to be suitable for every dataset or study design. Users are responsible for checking data quality, verifying assumptions, and validating results before drawing scientific conclusions.
+
+## License
+
+A license has not yet been specified. Please check the repository's license information before reusing, modifying, or redistributing its contents.
 
 ## Author
+Aleix Lluansí
 
 Aleix Lluansi
 
