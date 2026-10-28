@@ -44,8 +44,6 @@ Imports a CSV file and creates:
 
 ## Author
 
-Add your name and contact/profile information if desired.
+Aleix Lluansi
 
-## License
 
-Choose and add a license before inviting reuse. The appropriate license may depend on institutional or project requirements.
